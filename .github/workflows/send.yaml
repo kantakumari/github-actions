@@ -14,3 +14,8 @@ jobs:
           python-version: 3.x
       - name: Hello World
         run: echo Hello, world!
+      - name: Run email code
+        env:
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}
+          USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
+        run: python send_email.py
