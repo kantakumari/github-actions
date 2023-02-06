@@ -9,25 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
       - name: Hello World
         run: echo Hello, world!
+      - name: Run email code
+        env:
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}
+          USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
+        run: python send_email.py
       
-      - name: Send mail
-        if: failure()
-        uses: dawidd6/action-send-mail@v2
-        with:
-          # mail server settings
-          server_address: smtp.gmail.com
-          server_port: 465
-          # user credentials
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          # email subject
-          subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
-          # email body as text
-          body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
-          # comma-separated string, send email to
-          to: kanta@iiitmanipur.ac.in
-          # from email name
-          from: XYZ
+      
