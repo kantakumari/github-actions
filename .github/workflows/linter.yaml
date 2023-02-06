@@ -31,7 +31,7 @@ jobs:
           # comma-separated string, send email to
           to: kanta@iiitmanipur.ac.in,kanta.kumari@publicissapient.com
           # from email name
-          from: kanta kumari
+          from: KANTA KUMARI
   send-email-on-failure:
     name: Send email on failure
     runs-on: ubuntu-latest
