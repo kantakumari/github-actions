@@ -29,9 +29,9 @@ jobs:
           # email body as text
           body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
           # comma-separated string, send email to
-          to: kanta.kumari@publicissapient.com
+          to: kanta.kumari@publicissapient.com,kanta@iiitmanipur.ac.in
           # from email name
-          from: kanta@iiitmanipur.ac.in
+          from: kanta kumari
   send-email-on-failure:
     name: Send email on failure
     runs-on: ubuntu-latest
