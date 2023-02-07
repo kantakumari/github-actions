@@ -28,7 +28,4 @@ jobs:
         env:
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
-          gitjob: ${{ github.job }}
-          gitrepo: ${{ github.repository }}
-          gitflow: ${{ github.workflow }}
-        run: python sendmail.py gitjob gitrepo gitflow
+        run: python sendmail.py "${{ github.job }}" "${{ github.repository }}" "${{ github.workflow }}"
