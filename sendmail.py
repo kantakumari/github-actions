@@ -14,7 +14,7 @@ githubwork = sys.argv[3]
 message = """\
 Subject: {githubjob} job of {githubrepo} had failed
 
-{githubjob} job in worflow {githubwork} of ${githubrepo} had Failed
+{githubjob} job in worflow {githubwork} of {githubrepo} had Failed
 """
 
 context = ssl.create_default_context()
