@@ -1,4 +1,4 @@
-name: Github actions
+name: Custom-github actions
 
 on: push
 
