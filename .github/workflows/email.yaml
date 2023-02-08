@@ -22,11 +22,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
+      - uses: actions/custom-github-actions@v3
         with:
           python-version: 3.x
       - name: Run email code
         env:
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
-          USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
-        run: python sendmail.py "${{ github.job }}" "${{ github.repository }}" "${{ github.workflow }}"
-  
+          USER_PASSWORD: ${{ secrets.USER_PASSWORD }}  
