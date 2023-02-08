@@ -23,10 +23,13 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
       - name: Run email code
-        uses: kantakumari/custom-github-actions@v3
+        uses: kantakumari/custom-github-actions@v4
         with:
           python-version: 3.x
         env:
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
-          USER_PASSWORD: ${{ secrets.USER_PASSWORD }}  
+          USER_PASSWORD: ${{ secrets.USER_PASSWORD }} 
+          gitjob: ${{ github.job }}
+          gitrepos: ${{ github.repository }} 
+          gitwork: ${{ github.workflow }}
           run: echo "failed sent"
