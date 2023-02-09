@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
       - name: Run email code
-        uses: kantakumari/custom-github-actions@v4
+        uses: kantakumari/custom-github-actions@v7
         with:
           python-version: 3.x
         env:
