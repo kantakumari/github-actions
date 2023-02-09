@@ -21,7 +21,7 @@ jobs:
     if: failure()
     steps:
       - name: Run email code
-        uses: kantakumari/custom-github-actions@v9
+        uses: kantakumari/custom-github-actions@v10
         with:
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }} 
