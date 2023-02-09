@@ -15,21 +15,16 @@ jobs:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   Failure-alert:
-    name: Send email on failure
+    name: Failure-email-alert
     runs-on: ubuntu-latest
     needs: [super-lint]
     if: failure()
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
       - name: Run email code
-        uses: kantakumari/custom-github-actions@v7
+        uses: kantakumari/custom-github-actions@v9
         with:
-          python-version: 3.x
-        env:
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }} 
           gitjob: ${{ github.job }}
           gitrepos: ${{ github.repository }} 
           gitwork: ${{ github.workflow }}
-          run: echo "failed sent"
