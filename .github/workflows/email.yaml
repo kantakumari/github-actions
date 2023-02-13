@@ -19,9 +19,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: [super-lint]
     if: failure()
+    env:
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}
+          USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
     steps:
       - name: Send email on failure
-        uses: kantakumari/custom-actions-2@v2.1.0
+        uses: kantakumari/custom-actions-2@v1.1.2
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
@@ -31,6 +34,4 @@ jobs:
           gitjob: ${{ github.job }}
           gitrepos: ${{ github.repository }} 
           gitwork: ${{ github.workflow }}
-        env:
-          USER_EMAIL: ${{ secrets.USER_EMAIL }}
-          USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
+        
