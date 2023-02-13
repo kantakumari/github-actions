@@ -20,11 +20,17 @@ jobs:
     needs: [super-lint]
     if: failure()
     steps:
-      - name: Run email code
-        uses: kantakumari/custom-github-actions@v10
+      - name: Send email on failure
+        uses: kantakumari/custom-actions-2@v2.1.0
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
         with:
-          USER_EMAIL: ${{ secrets.USER_EMAIL }}
-          USER_PASSWORD: ${{ secrets.USER_PASSWORD }} 
+          python-version: 3.x
+          username: ${{ env.USER_EMAIL }}
+          password: ${{ env.USER_PASSWORD }} 
           gitjob: ${{ github.job }}
           gitrepos: ${{ github.repository }} 
           gitwork: ${{ github.workflow }}
+        env:
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}
+          USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
