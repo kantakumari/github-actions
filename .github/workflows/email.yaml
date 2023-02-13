@@ -24,7 +24,7 @@ jobs:
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
     steps:
       - name: Send email on failure
-        uses: kantakumari/custom-actions-2@v1.1.2
+        uses: kantakumari/custom-actions-2@v1.1.3
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
